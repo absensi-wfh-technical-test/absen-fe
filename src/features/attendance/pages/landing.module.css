@@ -1,0 +1,7 @@
+.eyebrow { margin: 0 0 8px; color: #1d4ed8; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.title { margin: 0; font-size: clamp(28px, 5vw, 36px); letter-spacing: -.03em; }
+.subtitle { margin: 10px 0 32px; color: #475569; }
+.card { max-width: 700px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; }
+.card h2 { margin: 0 0 20px; font-size: 20px; }
+.card p { color: #475569; line-height: 1.6; }
+.card .pending { display: inline-block; margin: 0; color: #1e40af; background: #eff6ff; padding: 6px 10px; border-radius: 6px; font-size: 13px; font-weight: 700; }

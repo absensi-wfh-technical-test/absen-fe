@@ -1,0 +1,9 @@
+.shell { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 28px 16px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 18px; }
+.mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; background: #1d4ed8; color: #fff; }
+.card { width: min(100%, 440px); padding: clamp(24px, 5vw, 36px); border: 1px solid #e2e8f0; border-radius: 16px; background: #fff; box-shadow: 0 16px 42px rgba(15,23,42,.06); }
+.eyebrow { margin: 0 0 10px; color: #1d4ed8; font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.card h1 { margin: 0; font-size: clamp(24px, 5vw, 30px); letter-spacing: -.03em; }
+.intro { color: #475569; font-size: 14px; line-height: 1.6; margin: 10px 0 26px; }
+.notice { background: #eff6ff; color: #1e40af; padding: 12px; border-radius: 8px; font-size: 14px; }
+.footer { color: #475569; font-size: 12px; text-align: center; }
