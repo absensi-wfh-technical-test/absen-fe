@@ -15,8 +15,16 @@ export function useLogin(onAuthenticated: (user: AuthUser) => void) {
       const user = await login(email, password)
       onAuthenticated(user)
     } catch (cause) {
-      setError(cause instanceof ApiError ? cause.message : cause instanceof Error ? cause.message : 'Terjadi kendala. Coba lagi.')
-    } finally { setBusy(false) }
+      setError(
+        cause instanceof ApiError
+          ? cause.message
+          : cause instanceof Error
+            ? cause.message
+            : 'Terjadi kendala. Coba lagi.',
+      )
+    } finally {
+      setBusy(false)
+    }
   }
   return { submit, busy, error, clearError: () => setError('') }
 }

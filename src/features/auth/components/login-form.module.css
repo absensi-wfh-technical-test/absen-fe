@@ -1,11 +1,77 @@
-.form { display: grid; gap: 20px; }
-.field { display: grid; gap: 8px; }
-.field label { font-weight: 600; font-size: 14px; }
-.field input { width: 100%; min-height: 46px; padding: 10px 12px; border: 1px solid #94a3b8; border-radius: 8px; background: #fff; color: #0f172a; }
-.field input[aria-invalid=true] { border-color: #b91c1c; }
-.passwordRow { display: flex; position: relative; }
-.passwordRow input { padding-right: 104px; }
-.toggle { position: absolute; right: 6px; top: 6px; bottom: 6px; border: 0; border-radius: 6px; background: transparent; color: #1d4ed8; font-size: 13px; font-weight: 600; }
-.error { margin: 0; color: #b91c1c; font-size: 14px; }
-.submit { min-height: 48px; border: 0; border-radius: 8px; background: #1d4ed8; color: #fff; font-weight: 700; }
-.submit:hover:not(:disabled) { background: #1e40af; }
+.form {
+  display: grid;
+  gap: 20px;
+}
+.field {
+  display: grid;
+  gap: 8px;
+}
+.field label {
+  font-weight: 600;
+  font-size: 14px;
+}
+.field input {
+  width: 100%;
+  min-height: 50px;
+  padding: 11px 14px;
+  border: 1px solid #b8c8dc;
+  border-radius: 11px;
+  background: #fff;
+  color: #172033;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+.field input:focus {
+  border-color: #4679d9;
+  box-shadow: 0 0 0 3px rgb(70 121 217 / 14%);
+}
+.field input:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+.field input[aria-invalid='true'] {
+  border-color: #b91c1c;
+}
+.passwordRow {
+  display: flex;
+  position: relative;
+}
+.passwordRow input {
+  padding-right: 104px;
+}
+.toggle {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  bottom: 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 600;
+}
+.error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 14px;
+}
+.submit {
+  min-height: 50px;
+  border: 0;
+  border-radius: 11px;
+  background: #1d4ed8;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 9px 20px rgb(29 78 216 / 16%);
+}
+.submit:hover:not(:disabled) {
+  background: #1e40af;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field input {
+    transition: none;
+  }
+}

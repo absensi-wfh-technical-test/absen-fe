@@ -52,15 +52,21 @@ After the backend seed runs, sign in with either account below. The password is 
 
 HRD cannot change attendance. An employee can replace a photo or delete only their own attendance on the same Asia/Jakarta business date. The check-in timestamp comes from the backend, not the browser.
 
-The browser creates a non-exportable P-256 signing key for each login session and signs business API requests. The JWT and key stay in memory; refreshing the page requires signing in again. Do not put a backend secret in frontend environment variables.
+The browser creates a non-exportable P-256 signing key for each login session and signs business API requests. After login and `/me` verification, the JWT and key are stored together in IndexedDB. Refreshing or reopening the browser restores the session while the 30-minute JWT is valid; `/me` confirms that the account is still active. Logout and expiry clear the local record. Browser storage may be unavailable or cleared, in which case signing in again is required. Do not put a backend secret in frontend environment variables.
 
 ## Build and checks
 
 ```bash
+pnpm format
+pnpm format:check
 pnpm lint
 pnpm test:navigation
+pnpm test:auth
+pnpm test:ui
 pnpm build
 ```
+
+`pnpm format` applies the shared Prettier rules (`printWidth: 100`, single quotes, no semicolons). `test:auth` covers IndexedDB restoration, JWT expiry, a missing proof key, offline retry, storage denial, and cross-tab logout. `test:ui` covers the custom photo picker without uploading a file. A persisted session remains valid only until the server-issued JWT expires; clearing browser site data requires signing in again.
 
 `pnpm build` writes static files to `dist/`. For deployment, serve those files and route `/api` to the NestJS HTTP API **on the same browser origin**. Vite's development proxy is not a production reverse proxy. The current HTTP client uses relative `/api` URLs; serving the frontend and API on different browser origins requires an explicit routing change before release.
 

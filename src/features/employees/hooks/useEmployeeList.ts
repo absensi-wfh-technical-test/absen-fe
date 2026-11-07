@@ -8,11 +8,18 @@ export function useEmployeeList(token: string, query: URLSearchParams) {
   const [error, setError] = useState('')
   const queryString = query.toString()
   const refresh = useCallback(async () => {
-    setLoading(true); setError('')
-    try { setResult(await employeeApi.list(token, new URLSearchParams(queryString))) }
-    catch (cause) { setError(cause instanceof Error ? cause.message : 'Data karyawan belum dapat dimuat.') }
-    finally { setLoading(false) }
+    setLoading(true)
+    setError('')
+    try {
+      setResult(await employeeApi.list(token, new URLSearchParams(queryString)))
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Data karyawan belum dapat dimuat.')
+    } finally {
+      setLoading(false)
+    }
   }, [token, queryString])
-  useEffect(() => { void Promise.resolve().then(refresh) }, [refresh])
+  useEffect(() => {
+    void Promise.resolve().then(refresh)
+  }, [refresh])
   return { result, loading, error, refresh }
 }

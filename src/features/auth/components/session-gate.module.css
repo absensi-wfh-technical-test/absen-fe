@@ -1,0 +1,64 @@
+.shell {
+  min-height: 100svh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  padding: 24px;
+  text-align: center;
+  color: #172033;
+  background: #f4f7fb;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  color: white;
+  background: #1d4ed8;
+  font-weight: 800;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+.shell h1 {
+  margin: 0;
+  font-size: clamp(24px, 4vw, 32px);
+}
+.shell p:last-of-type {
+  max-width: 460px;
+  margin: 0;
+  color: #536278;
+  line-height: 1.6;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 14px;
+}
+.actions button {
+  min-height: 44px;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 700;
+}
+.primary {
+  border: 1px solid #1d4ed8;
+  color: white;
+  background: #1d4ed8;
+}
+.secondary {
+  border: 1px solid #cbd5e1;
+  color: #172033;
+  background: white;
+}
